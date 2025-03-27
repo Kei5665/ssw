@@ -5,7 +5,7 @@ import Image from 'next/image';
 // FAQデータを配列として定義
 const faqData = [
   {
-    question: '日本語がN4レベルでも大丈夫ですか？',
+    question: '日本語がN3レベルでも大丈夫ですか？',
     answer: 'はい、大丈夫です。タクシー会社によっては日本語研修も実施しています。また、通訳サポートもありますので、徐々に上達していけば問題ありません。'
   },
   {
@@ -111,7 +111,7 @@ const testimonialData = [
     alt: 'ベトナム人ドライバー'
   },
   {
-    quote: '日本語が苦手でも、通訳さんと先輩ドライバーがいつも助けてくれました。今では日本語も上達し、お客さんとの会話も楽しめるようになりました。',
+    quote: '来日後、最初は不安でしたが、生活サポートがとても手厚く安心できました。今では仕事にも慣れて、毎日やりがいを感じています。',
     name: 'ラジャン・シュレスタ',
     country: 'ネパール出身 / 大阪で勤務中',
     image: '/api/placeholder/60/60',
@@ -149,7 +149,7 @@ export default function Home() {
               タクシー運転手として働きませんか？
             </h1>
             <p className="hero-subtitle">
-              部屋あり・高い給料・生活サポートあり。登録・面談は完全無料。
+            家あり or 部屋あり・高い給料・生活サポートあり。無料でお仕事を探します
             </p>
             <div className="text-center">
               <a href="#contact" className="btn btn-primary btn-large">
