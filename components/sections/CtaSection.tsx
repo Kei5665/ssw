@@ -1,15 +1,44 @@
+'use client';
+
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { useCurrentLocale } from '@/locales/client';
+import localeEn from '@/locales/en';
+import localeJa from '@/locales/ja';
+import localeZh from '@/locales/zh';
+
+// Map locale strings to the imported objects
+const locales = {
+  en: localeEn,
+  ja: localeJa,
+  zh: localeZh,
+};
 
 const CtaSection = () => {
+  const currentLocale = useCurrentLocale();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Select the correct locale object
+  const locale = locales[currentLocale as keyof typeof locales] || localeJa;
+
+  if (!isMounted) {
+    return null; // Prevent hydration mismatch
+  }
+
   return (
-    <section className="bg-teal-600 text-white py-16 md:py-24">
+    <section className="bg-[#257985] text-white py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          「仕事が見つからない」「何から始めればいいかわからない」
+          {locale.ctaSection.heading}
         </h2>
-        <p className="text-lg md:text-xl mb-8">
-          そんなお悩み、一緒に解決します。<br className="hidden sm:block" />
-          ぜひ一度、お話ししてみませんか？
+        <p className="text-3xl md:text-4xl mb-8">
+          {locale.ctaSection.line1}
+          <br className="hidden sm:block" />
+          {locale.ctaSection.line2}
         </p>
         <Link
           href="#"
@@ -17,10 +46,14 @@ const CtaSection = () => {
         >
           <div className="relative px-8 py-4">
              <span className="absolute top-0 left-0 -mt-2 -ml-2 bg-yellow-400 text-red-600 text-xs font-bold px-2 py-0.5 rounded">
-                 FREE
+                 {locale.ctaSection.badge}
                </span>
-               <span className="block text-xs font-semibold">簡単1分</span>
-               <span className="block text-xl">LINEで相談</span>
+               <span className="block text-sm font-semibold">
+                 {locale.ctaSection.buttonLine1}
+               </span>
+               <span className="block text-2xl">
+                 {locale.ctaSection.buttonLine2}
+               </span>
           </div>
         </Link>
       </div>

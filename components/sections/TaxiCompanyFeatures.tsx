@@ -1,53 +1,70 @@
-import Image from 'next/image';
+'use client';
 
-const companyFeatures = [
-  {
-    title: '外国人ドライバーが在籍',
-    description: '職場内に先輩ドライバーが在籍していますので、安心して仕事もスタートできます。',
-    imageUrl: '/support-driver.jpg', // Updated image path
-    alt: '外国人ドライバーの笑顔'
-  },
-  {
-    title: '社員寮・各種手当あり',
-    description: '会社の保有する寮がありますので、住まいを探す手間も省けます。',
-    imageUrl: '/support-housing.jpg', // Updated image path
-    alt: '家の模型を持つ手'
-  },
-  {
-    title: '研修制度あり',
-    description: '入社後の研修が手厚いので、はじめてでも不安なくスタートできます。',
-    imageUrl: '/support-meeting.jpg', // Updated image path
-    alt: '研修を受けている様子'
-  },
-];
+import Image from 'next/image';
+import CtaSection from './CtaSection';
+import { useState, useEffect } from 'react';
+import { useCurrentLocale } from '@/locales/client';
+import localeEn from '@/locales/en';
+import localeJa from '@/locales/ja';
+import localeZh from '@/locales/zh';
+
+// Map locale strings to the imported objects
+const locales = {
+  en: localeEn,
+  ja: localeJa,
+  zh: localeZh,
+};
 
 const TaxiCompanyFeatures = () => {
+  const currentLocale = useCurrentLocale();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Select the correct locale object
+  const locale = locales[currentLocale as keyof typeof locales] || localeJa;
+
+  if (!isMounted) {
+    return null; // Prevent hydration mismatch
+  }
+
+  // Get features from the selected locale
+  const companyFeatures = locale.taxiCompanyFeatures.items;
+
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
-          弊社が紹介する<br className="sm:hidden" />タクシー会社の特徴
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {companyFeatures.map((feature, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="relative h-48 w-full">
-                <Image
-                  src={feature.imageUrl}
-                  alt={feature.alt}
-                  layout="fill"
-                  objectFit="cover"
-                />
+    <>
+      <section className="bg-white py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">
+            {locale.taxiCompanyFeatures.sectionTitleLine1}
+            <br className="sm:hidden" />
+            {locale.taxiCompanyFeatures.sectionTitleLine2}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {companyFeatures.map((feature, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="relative w-full aspect-video">
+                  <Image
+                    src={feature.imageUrl}
+                    alt={feature.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-3xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                  <p className="text-gray-600 text-lg">{feature.description}</p>
+                </div>
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">{feature.description}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <CtaSection />
+    </>
   );
 };
 
