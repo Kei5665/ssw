@@ -1,7 +1,7 @@
 export default {
   header: {
-    service: 'Service Details',
-    flow: 'Process to Employment',
+    service: 'Our Services',
+    flow: 'How it Works',
     faq: 'FAQ',
     language: 'LANGUAGE',
     contactLine: 'Contact via LINE',
@@ -15,22 +15,22 @@ export default {
       line1: 'Work and Life.',
       line2: 'Get it all in Japan.',
     },
-    subtitle: 'Recruitment Introduction for Taxi Drivers [For Specified Skilled Workers]',
+    subtitle: 'Taxi Driver Job Opportunities for Specified Skilled Workers',
     button: {
       line1: 'Easy 1 min',
-      line2: 'Consult via LINE',
+      line2: 'Chat on LINE',
     },
     freeBadge: 'FREE',
   },
   problemAppeal: {
     sectionTitle: {
-      line1: 'Do you have',
-      line2: 'these problems?',
+      line1: 'Are you facing',
+      line2: 'these challenges?',
     },
     cards: {
       '0': {
         title: 'Cannot find a job',
-        description: 'Many people have obtained the Specified Skilled Worker qualification but are struggling to find a job.',
+        description: 'Many people get their SSW qualification but then struggle with the job search.',
         alt: 'A person worried about not finding a job',
       },
       '1': {
@@ -40,7 +40,7 @@ export default {
       },
       '2': {
         title: 'How to prepare for life in Japan?',
-        description: 'Many people struggle with finding housing, opening bank accounts, getting a mobile phone, etc., due to unfamiliarity with Japanese rules.',
+        description: 'Many people struggle with finding housing, opening bank accounts, getting a mobile phone, etc., because they\'re unfamiliar with how things work in Japan.',
         alt: 'Someone worrying about preparing for life in Japan',
       },
     },

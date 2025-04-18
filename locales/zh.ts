@@ -1,7 +1,7 @@
 export default {
   header: {
     service: '服务内容',
-    flow: '就业流程',
+    flow: '服务流程',
     faq: '常见问题',
     language: '语言',
     contactLine: '通过LINE咨询',
@@ -27,23 +27,23 @@ export default {
       line1: '您是否有',
       line2: '这些烦恼？',
     },
-    cards: [
-      {
+    cards: {
+      '0': {
         title: '找不到工作',
         description: '虽然取得了特定技能资格，但很多人在关键的求职过程中感到困惑。',
         alt: '为找不到工作而烦恼的人',
       },
-      {
+      '1': {
         title: '不知道如何准备面试',
         description: '许多人因为没有进行面试练习或准备不足而导致面试失败。',
         alt: '为面试准备而困扰的样子',
       },
-      {
+      '2': {
         title: '在日本的生活准备该怎么办？',
         description: '很多人因为不了解找房子、银行开户、准备手机等在日本生活的规则而感到困扰。',
         alt: '为在日本的生活准备而烦恼的样子',
       },
-    ],
+    },
   },
   serviceOverview: {
     mainTitlePart1: 'RIDE JOB FOR SSW',

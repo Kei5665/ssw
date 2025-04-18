@@ -75,7 +75,7 @@ const Header = () => {
             >
               {/* @ts-ignore */} 
               {t('header.language')} 
-            </button>
+          </button>
             {isLanguageDropdownOpen && (
               <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
                 <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
@@ -108,7 +108,7 @@ const Header = () => {
             <Link href="#" className="bg-red-500 text-white px-4 rounded-md text-lg font-bold hover:bg-red-600 flex items-center justify-center h-full">
               {/* @ts-ignore */} 
               {t('header.contactLine')} 
-            </Link>
+          </Link>
           </div>
         </div>
 
