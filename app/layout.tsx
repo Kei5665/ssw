@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from 'next/script';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,13 +13,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ssw.ridejob.com';
+
 export const metadata: Metadata = {
-  title: "RIDE JOB FOR SSW",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "RIDE JOB FOR SSW",
+    template: `%s | RIDE JOB FOR SSW`,
+  },
   description: "特定技能合格者向けタクシードライバー専門求人サービス",
   openGraph: {
     title: "RIDE JOB FOR SSW",
     description: "特定技能合格者向けタクシードライバー専門求人サービス",
-    url: "https://ssw.ridejob.com",
+    url: siteUrl,
     siteName: "RIDE JOB FOR SSW",
     images: [
       {
@@ -46,8 +53,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'RIDE JOB FOR SSW',
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+  };
+
   return (
     <html>
+      <head>
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

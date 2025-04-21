@@ -28,11 +28,12 @@ const Hero = () => {
     pauseOnHover: true, // Pause autoplay on hover
   };
 
-  // Sample image data - replace with your actual images
+  // Sample image data - replace with your actual images and potentially alt texts
   const slideImages = [
-    '/hero-slide-1.png',
-    '/hero-slide-2.png',
+    { src: '/hero-slide-1.png', altKey: 'hero.slide1Alt' }, // Example using translation key
+    { src: '/hero-slide-2.png', altKey: 'hero.slide2Alt' },
   ];
+  const desktopBg = { src: '/hero-background.png', altKey: 'hero.desktopBgAlt' };
 
   return (
     <section className="relative text-white overflow-hidden"> {/* Removed padding, background styles */}
@@ -41,11 +42,12 @@ const Hero = () => {
       <div className="md:hidden">
         {isClient && ( // Only render Slider on the client-side
           <Slider {...settings}>
-            {slideImages.map((src, index) => (
+            {slideImages.map((image, index) => (
               <div key={index} className="relative w-full h-[60vh]"> {/* Adjust height as needed */}
                 <Image
-                  src={src}
-                  alt={`Hero image ${index + 1}`}
+                  src={image.src}
+                  // @ts-ignore - Assuming t function handles missing keys gracefully or keys are guaranteed to exist
+                  alt={t(image.altKey) || `Hero image ${index + 1}`}
                   fill
                   className="object-cover"
                   priority={index === 0}
@@ -60,8 +62,9 @@ const Hero = () => {
        {/* Static image for desktop */}
        <div className="hidden md:block relative w-full h-[70vh]"> {/* Adjust height as needed */}
           <Image
-              src="/hero-background.png" // Your static desktop background
-              alt="Hero background"
+              src={desktopBg.src}
+              // @ts-ignore
+              alt={t(desktopBg.altKey) || "Hero background"}
               fill
               className="object-cover"
               priority

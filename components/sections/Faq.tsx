@@ -5,6 +5,7 @@ import { useCurrentLocale } from '@/locales/client';
 import localeEn from '@/locales/en';
 import localeJa from '@/locales/ja';
 import localeZh from '@/locales/zh';
+import Script from 'next/script'; // Import Script
 
 // Map locale strings to the imported objects
 const locales = {
@@ -12,6 +13,12 @@ const locales = {
   ja: localeJa,
   zh: localeZh,
 };
+
+// Define type for FAQ item based on locale structure
+interface FaqItem {
+  question: string;
+  answer: string;
+}
 
 const Faq = () => {
   const currentLocale = useCurrentLocale();
@@ -33,11 +40,31 @@ const Faq = () => {
     return null; // Prevent hydration mismatch
   }
 
-  // Get FAQ data from the selected locale
-  const faqData = locale.faq.items;
+  // Get FAQ data from the selected locale - Use readonly type
+  const faqData: readonly FaqItem[] = locale.faq.items;
+
+  // Generate JSON-LD structured data
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqData.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
 
   return (
     <section id="faq" className="py-16 md:py-24 bg-gray-50"> {/* Added id and bg color */}
+      {/* Add JSON-LD Script for FAQ Schema */}
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl"> {/* Centered content */}
         <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">
           {locale.faq.sectionTitle} {/* Use translated title */}
