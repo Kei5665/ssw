@@ -41,7 +41,8 @@ const CtaSection = () => {
           {locale.ctaSection.line2}
         </p>
         <Link
-          href="#"
+          href="https://lin.ee/aHr6WDJ"
+          target="_blank" rel="noopener noreferrer"
           className="inline-block bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
         >
           <div className="relative px-8 py-4">

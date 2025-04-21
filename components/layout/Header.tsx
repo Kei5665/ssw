@@ -104,10 +104,11 @@ const Header = () => {
               </div>
             )}
           </div>
-          {/* Line Button Placeholder */}          <div onClick={toggleMobileMenu} className="block cursor-pointer h-full"> {/* Note: toggleMobileMenu here might not be intended */} 
-            <Link href="#" className="bg-red-500 text-white px-4 rounded-md text-lg font-bold hover:bg-red-600 flex items-center justify-center h-full">
-              {/* @ts-ignore */} 
-              {t('header.contactLine')} 
+          {/* Line Button Placeholder */}
+          <div className="block cursor-pointer h-full"> {/* Removed onClick={toggleMobileMenu} */}
+            <Link href="https://lin.ee/aHr6WDJ" target="_blank" rel="noopener noreferrer" className="bg-red-500 text-white px-4 rounded-md text-lg font-bold hover:bg-red-600 flex items-center justify-center h-full">
+              {/* @ts-ignore */}
+              {t('header.contactLine')}
           </Link>
           </div>
         </div>
@@ -171,9 +172,9 @@ const Header = () => {
                </div>
             </div>
             {/* Line Button */}             {/* Removed toggleMobileMenu here as Link navigation should handle it */}            <div className="block cursor-pointer mt-4">
-              <Link href="#" className="bg-red-500 text-white block w-full text-center px-4 py-2 rounded-md text-lg font-bold hover:bg-red-600">
-                {/* @ts-ignore */} 
-                {t('header.contactLine')} 
+              <Link href="https://lin.ee/aHr6WDJ" target="_blank" rel="noopener noreferrer" className="bg-red-500 text-white block w-full text-center px-4 py-2 rounded-md text-lg font-bold hover:bg-red-600">
+                {/* @ts-ignore */}
+                {t('header.contactLine')}
               </Link>
             </div>
           </div>
