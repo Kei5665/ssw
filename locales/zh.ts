@@ -40,7 +40,7 @@ export default {
       },
       '2': {
         title: '在日本的生活准备该怎么办？',
-        description: '很多人因为不了解找房子、银行开户、准备手机等在日本生活的规则而感到困扰。',
+        description: '很多人因为不了解找房子、银行开户、办理手机等在日本生活的规则而感到困扰。',
         alt: '为在日本的生活准备而烦恼的样子',
       },
     },
@@ -69,7 +69,7 @@ export default {
       },
       {
         title: '协助取得在留资格',
-        description: '我们也一起准备资格认定所需的材料。对于"将来想和家人一起住在日本"的梦想，我们也将协助实现。',
+        description: '我们也一起准备资格认定所需的资料。对于"将来想和家人一起住在日本"的梦想，我们也将协助实现。',
         alt: '协助准备文件的样子',
         imageUrl: '/feature-follow-up.jpg'
       },
@@ -115,9 +115,9 @@ export default {
       { number: 1, title: '通过LINE轻松注册（1分钟）', description: '只需点击按钮。请发送您的姓名和合格证明（※）。', imageUrl: '/step-01-line-register.png', altPrefix: '步骤 1:' },
       { number: 2, title: '通过Zoom或LINE进行面试（提供翻译）', description: '我们将听取您的期望条件和担忧之处。也可以用您的母语进行沟通。', imageUrl: '/step-02-online-interview.png', altPrefix: '步骤 2:' },
       { number: 3, title: '介绍符合条件的职位', description: '我们将根据您期望的地区、薪资和住房条件为您介绍工作。', imageUrl: '/step-03-job-matching.png', altPrefix: '步骤 3:' },
-      { number: 4, title: '公司面试・参观公司', description: '在线或现场进行面试。翻译人员也会陪同。', imageUrl: '/step-04-company-visit.png', altPrefix: '步骤 4:' },
-      { number: 5, title: '签证确认・分配支持', description: '从签证申请到准备住房，专业顾问将为您提供入职所需手续的支持。', imageUrl: '/step-05-visa-support.png', altPrefix: '步骤 5:' },
-      { number: 6, title: '入职・开始生活', description: '在日本的生活开始了。如有任何困扰，随时可以咨询。', imageUrl: '/step-06-life-start.png', altPrefix: '步骤 6:' },
+      { number: 4, title: '公司面试・参观公司', description: '线上或现场进行面试。翻译人员也会陪同。', imageUrl: '/step-04-company-visit.png', altPrefix: '步骤 4:' },
+      { number: 5, title: '签证确认・分配支持', description: '从签证申请到准备住房，专业顾问将为您提供入职所需手续的协助。', imageUrl: '/step-05-visa-support.png', altPrefix: '步骤 5:' },
+      { number: 6, title: '入职・开始生活', description: '在日本的生活。如有任何困扰，随时可以咨询。', imageUrl: '/step-06-life-start.png', altPrefix: '步骤 6:' },
     ]
   },
   taxiCompanyFeatures: {
@@ -132,7 +132,7 @@ export default {
   faq: {
     sectionTitle: '常见问题',
     items: [
-      { question: '担心我的日语能力（JLPT N3）...', answer: '是的，请放心。根据出租车公司的不同，我们也会提供日语培训。此外，还有口译支持，所以只要逐步提高就没问题。' },
+      { question: '担心我的日语能力（JLPT N3）...', answer: '是的，请放心。依出租车公司的不同，我们也会提供日语培训。此外，还有口译协助，所以只要逐步提高就没问题。' },
       { question: '即使驾驶经验不多也能工作吗？', answer: '是的，可以。如果您通过了特定技能"汽车驾驶业务"的考试，入职后可以接受细致的培训。不必担心经验不足。' },
       { question: '在日本没有住处...', answer: '请放心。大多数岗位都提供单人房或公司宿舍。很多情况下提供带家具的住宿，方便您抵达日本后立即开始生活，也能节省初期费用。' },
       { question: '可以在哪些地区工作？', answer: '我们处理从东京、神奈川、大阪、爱知等大都市圈到地方城市的各种地区的招聘信息。您可以选择符合您期望的地区。' },
