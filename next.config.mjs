@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  basePath: '/ssw',
+  // Removed i18n object
 };
 
 export default nextConfig; 

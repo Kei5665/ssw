@@ -14,5 +14,5 @@ export function middleware(request: NextRequest) {
 export const config = {
   // Skip all paths that should not be internationalized.
   // Try a broader exclusion for static assets.
-  matcher: ['/ssw', '/ssw/((?!api|_next|.*\\..*).*)'],
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
 }; 
