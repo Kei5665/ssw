@@ -8,6 +8,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from 'react'; // Import useEffect and useState
 import { useI18n } from '@/locales/client'; // Import the hook
 
+// Import images statically - remove leading slash from path
+import heroSlide1 from 'public/hero-slide-1.png';
+import heroSlide2 from 'public/hero-slide-2.png';
+import heroBackground from 'public/hero-background.png';
+
 const Hero = () => {
   const [isClient, setIsClient] = useState(false);
   const t = useI18n(); // Initialize the hook
@@ -28,12 +33,12 @@ const Hero = () => {
     pauseOnHover: true, // Pause autoplay on hover
   };
 
-  // Sample image data - replace with your actual images and potentially alt texts
+  // Use imported images
   const slideImages = [
-    { src: '/hero-slide-1.png', altKey: 'hero.slide1Alt' }, // Example using translation key
-    { src: '/hero-slide-2.png', altKey: 'hero.slide2Alt' },
+    { src: heroSlide1, altKey: 'hero.slide1Alt' },
+    { src: heroSlide2, altKey: 'hero.slide2Alt' },
   ];
-  const desktopBg = { src: '/hero-background.png', altKey: 'hero.desktopBgAlt' };
+  const desktopBg = { src: heroBackground, altKey: 'hero.desktopBgAlt' };
 
   return (
     <section className="relative text-white overflow-hidden"> {/* Removed padding, background styles */}
