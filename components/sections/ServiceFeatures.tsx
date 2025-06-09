@@ -6,6 +6,9 @@ import { useCurrentLocale } from '@/locales/client';
 import localeEn from '@/locales/en';
 import localeJa from '@/locales/ja';
 import localeZh from '@/locales/zh';
+import featureVisa from '../../assets/images/feature-visa-support.jpg';
+import featureLife from '../../assets/images/feature-life-support.jpg';
+import featureFollow from '../../assets/images/feature-follow-up.jpg';
 
 // Map locale strings to the imported objects
 const locales = {
@@ -24,6 +27,12 @@ const ServiceFeatures = () => {
 
   // Select the correct locale object
   const locale = locales[currentLocale as keyof typeof locales] || localeJa;
+
+  const imageMap = {
+    '/feature-visa-support.jpg': featureVisa,
+    '/feature-life-support.jpg': featureLife,
+    '/feature-follow-up.jpg': featureFollow,
+  };
 
   if (!isMounted) {
     return null; // Prevent hydration mismatch
@@ -47,7 +56,7 @@ const ServiceFeatures = () => {
               {/* Image Column */}
               <div className={`relative w-full rounded-lg overflow-hidden shadow-lg aspect-video ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
                 <Image
-                  src={feature.imageUrl}
+                  src={imageMap[feature.imageUrl]}
                   alt={feature.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"

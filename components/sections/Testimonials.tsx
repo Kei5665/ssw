@@ -6,6 +6,9 @@ import { useCurrentLocale } from '@/locales/client';
 import localeEn from '@/locales/en';
 import localeJa from '@/locales/ja';
 import localeZh from '@/locales/zh';
+import testimonial1 from '../../assets/images/profile-candidate-1.jpg';
+import testimonial2 from '../../assets/images/profile-candidate-2.jpg';
+import testimonial3 from '../../assets/images/profile-candidate-3.jpg';
 
 // Map locale strings to the imported objects
 const locales = {
@@ -24,6 +27,12 @@ const Testimonials = () => {
 
   // Select the correct locale object
   const locale = locales[currentLocale as keyof typeof locales] || localeJa;
+
+  const imageMap = {
+    '/profile-candidate-1.jpg': testimonial1,
+    '/profile-candidate-2.jpg': testimonial2,
+    '/profile-candidate-3.jpg': testimonial3,
+  };
 
   if (!isMounted) {
     return null; // Prevent hydration mismatch
@@ -44,7 +53,7 @@ const Testimonials = () => {
               {/* Image */}
               <div className="relative w-full overflow-hidden mb-4 rounded-full aspect-square">
                 <Image
-                  src={testimonial.imageUrl}
+                  src={imageMap[testimonial.imageUrl]}
                   alt={testimonial.alt}
                   fill
                   sizes="(max-width: 768px) 90vw, 33vw"

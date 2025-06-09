@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image'; // Import Image component
 import { useState } from 'react'; // Import useState
 import { useI18n, useChangeLocale, useCurrentLocale } from '@/locales/client'; // Import hooks
+import logo from '../../assets/images/logo.png';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu
@@ -40,7 +41,7 @@ const Header = () => {
         <div className="flex-shrink-0 flex items-center">
           <Link href={`/${currentLocale}`} className="flex items-center">
             <Image
-              src="/logo.png" // Use logo.png from public directory
+              src={logo}
               alt="RIDE JOB FOR SSW" // Updated alt text
               width={180}  // Adjusted width
               height={60} // Adjusted height
@@ -151,8 +152,10 @@ const Header = () => {
                 {t('header.faq')} 
               </Link>
             </div>
-            {/* Language Links */}            <div className="pt-2">
-               {/* Call mobile-specific handler */}              <div onClick={() => handleMobileLanguageSelect('en')} className="block cursor-pointer">
+            {/* Language Links */}
+            <div className="pt-2">
+               {/* Call mobile-specific handler */}
+              <div onClick={() => handleMobileLanguageSelect('en')} className="block cursor-pointer">
                 <span className="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
                   {/* @ts-ignore */} 
                   {t('header.english')} 
@@ -164,14 +167,16 @@ const Header = () => {
                   {t('header.chinese')} 
                 </span>
               </div>
-               {/* Added Japanese option for mobile */}              <div onClick={() => handleMobileLanguageSelect('ja')} className="block cursor-pointer">
+               {/* Added Japanese option for mobile */}
+              <div onClick={() => handleMobileLanguageSelect('ja')} className="block cursor-pointer">
                  <span className="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
                    {/* @ts-ignore */} 
                    {t('header.japanese')} 
                  </span>
                </div>
             </div>
-            {/* Line Button */}             {/* Removed toggleMobileMenu here as Link navigation should handle it */}            <div className="block cursor-pointer mt-4">
+            {/* Line Button */}
+            <div className="block cursor-pointer mt-4">
               <Link href="https://lin.ee/aHr6WDJ" target="_blank" rel="noopener noreferrer" className="bg-red-500 text-white block w-full text-center px-4 py-2 rounded-md text-lg font-bold hover:bg-red-600">
                 {/* @ts-ignore */}
                 {t('header.contactLine')}

@@ -6,6 +6,9 @@ import { useState, useEffect } from 'react';
 import localeEn from '@/locales/en';
 import localeJa from '@/locales/ja';
 import localeZh from '@/locales/zh';
+import problemJob from '../../assets/images/problem-job.jpg';
+import problemInterview from '../../assets/images/problem-interview.jpg';
+import problemLife from '../../assets/images/problem-life.jpg';
 
 interface ProblemCard {
   title: string;
@@ -32,9 +35,9 @@ const ProblemAppeal = () => {
   const problemsDataObject = locale.problemAppeal.cards;
 
   const imageUrls = [
-    '/problem-job.jpg',
-    '/problem-interview.jpg',
-    '/problem-life.jpg',
+    problemJob,
+    problemInterview,
+    problemLife,
   ];
 
   const problems: ProblemCard[] = (typeof problemsDataObject === 'object' && problemsDataObject !== null)

@@ -4,6 +4,8 @@ import { useCurrentLocale } from '@/locales/client';
 import localeEn from '@/locales/en';
 import localeJa from '@/locales/ja';
 import localeZh from '@/locales/zh';
+import footerBg from '../../assets/images/footer.png';
+import logo from '../../assets/images/logo.png';
 
 // Map locale strings to the imported objects
 const locales = {
@@ -22,7 +24,7 @@ const Footer = () => {
       {/* Faint background image */}
       <div className="absolute inset-0 opacity-10 z-0 pointer-events-none">
         <Image
-          src="/footer.png"
+          src={footerBg}
           alt=""
           fill
           className="object-cover"
@@ -34,13 +36,13 @@ const Footer = () => {
           {/* Logo */}
           <div className="flex justify-center md:justify-start">
             <Link href={`/${currentLocale}`} className="flex items-center">
-               <Image
-                 src="/logo.png"
-                 alt={locale.footer.logoAlt}
-                 width={150}
-                 height={50}
-               />
-             </Link>
+              <Image
+                src={logo}
+                alt={locale.footer.logoAlt}
+                width={150}
+                height={50}
+              />
+            </Link>
           </div>
 
           {/* Company Info */}

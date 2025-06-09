@@ -6,6 +6,7 @@ import { useCurrentLocale } from '@/locales/client';
 import localeEn from '@/locales/en';
 import localeJa from '@/locales/ja';
 import localeZh from '@/locales/zh';
+import serviceOverview from '../../assets/images/service_overview.png';
 
 // Map locale strings to the imported objects
 const locales = {
@@ -50,7 +51,7 @@ const ServiceOverview = () => {
       {/* Taxi Silhouette Background Image */}
       <div className="absolute inset-0 flex items-center justify-center z-0 opacity-10 pointer-events-none">
           <Image
-              src="/service_overview.png"
+              src={serviceOverview}
               alt="" // Decorative image, empty alt
               width={600} // Adjust size as needed
               height={300} // Adjust size as needed

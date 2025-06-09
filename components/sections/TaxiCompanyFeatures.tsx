@@ -7,6 +7,9 @@ import { useCurrentLocale } from '@/locales/client';
 import localeEn from '@/locales/en';
 import localeJa from '@/locales/ja';
 import localeZh from '@/locales/zh';
+import supportDriver from '../../assets/images/support-driver.jpg';
+import supportHousing from '../../assets/images/support-housing.jpg';
+import supportMeeting from '../../assets/images/support-meeting.jpg';
 
 // Map locale strings to the imported objects
 const locales = {
@@ -22,6 +25,12 @@ const TaxiCompanyFeatures = () => {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const imageMap = {
+    '/support-driver.jpg': supportDriver,
+    '/support-housing.jpg': supportHousing,
+    '/support-meeting.jpg': supportMeeting,
+  };
 
   // Select the correct locale object
   const locale = locales[currentLocale as keyof typeof locales] || localeJa;
@@ -47,7 +56,7 @@ const TaxiCompanyFeatures = () => {
             <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="relative w-full aspect-video">
                 <Image
-                  src={feature.imageUrl}
+                  src={imageMap[feature.imageUrl]}
                   alt={feature.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

@@ -8,6 +8,12 @@ import { useCurrentLocale } from '@/locales/client';
 import localeEn from '@/locales/en';
 import localeJa from '@/locales/ja';
 import localeZh from '@/locales/zh';
+import step01 from '../../assets/images/step-01-line-register.png';
+import step02 from '../../assets/images/step-02-online-interview.png';
+import step03 from '../../assets/images/step-03-job-matching.png';
+import step04 from '../../assets/images/step-04-company-visit.png';
+import step05 from '../../assets/images/step-05-visa-support.png';
+import step06 from '../../assets/images/step-06-life-start.png';
 
 // Map locale strings to the imported objects
 const locales = {
@@ -26,6 +32,15 @@ const Steps = () => {
 
   // Select the correct locale object
   const locale = locales[currentLocale as keyof typeof locales] || localeJa;
+
+  const imageMap = {
+    '/step-01-line-register.png': step01,
+    '/step-02-online-interview.png': step02,
+    '/step-03-job-matching.png': step03,
+    '/step-04-company-visit.png': step04,
+    '/step-05-visa-support.png': step05,
+    '/step-06-life-start.png': step06,
+  };
 
   if (!isMounted) {
     return null; // Prevent hydration mismatch
@@ -86,7 +101,7 @@ const Steps = () => {
                         // Keep Image for other steps
                         <div className="relative w-full max-w-sm aspect-[3/2]">
                           <Image
-                            src={step.imageUrl}
+                            src={imageMap[step.imageUrl]}
                             alt={`${step.altPrefix} ${step.title}` as string}
                             fill
                             sizes="(max-width: 768px) 90vw, 40vw"
