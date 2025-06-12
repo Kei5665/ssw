@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     description: "特定技能合格者向けタクシードライバー専門求人サービス",
     images: ["/ogp-image.png"],
   },
+  icons: {
+    icon: "/ssw-favicon.png",
+  },
 };
 
 // No generateStaticParams needed here if handled by locale layout
